@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-medium/20;
+  }
+  body {
+    @apply bg-white text-base text-dark;
+  }
+  strong,
+  b {
+    @apply font-semibold;
+  }
+  button,
+  input {
+    @apply focus:outline-none focus:ring-0;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[90rem] px-4;
+  }
+}
+
+@layer utilities {
+  .stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+/* For Chrome, Edge, and other WebKit-based browsers */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* For Firefox */
+input[type="search"] {
+  -moz-appearance: textfield;
+}
+
+/* For consistent styling */
+input[type="search"] {
+  -webkit-appearance: none; /* Safari */
+}
+
+/* rdr layout overrides */
+.rdrDateRangePickerWrapper {
+  @apply flex max-md:flex-col;
+}
+.rdrCalendarWrapper {
+  @apply grow;
+}
+.rdrInputRanges {
+  @apply max-md:block;
+}
+.rdrDefinedRangesWrapper {
+  @apply max-md:w-full;
+}
+.rdrStaticRanges,
+.rdrInputRanges {
+  @apply max-md:grid max-md:grid-cols-2;
+}
+.rdrMonth {
+  @apply w-full;
+}
